@@ -1,6 +1,6 @@
 package Year2021.day2;
 
-import Year2021.Constant;
+import shared.Constant;
 
 import java.io.File;
 import java.io.FileNotFoundException;

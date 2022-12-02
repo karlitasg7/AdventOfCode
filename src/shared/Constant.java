@@ -1,4 +1,4 @@
-package Year2021;
+package shared;
 
 public class Constant {
 
