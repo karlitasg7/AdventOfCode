@@ -1,7 +1,6 @@
 function getMaxGifts(giftsCities, maxGifts, maxCities) {
 
     return giftsCities
-        .filter(item => item <= maxGifts)
         .reduce((acumulator, value) => acumulator.concat(acumulator.map(data => [value].concat(data))), [[]])
         .filter(arr => arr.length > 0 && arr.length <= maxCities)
         .filter(arr => (arr.reduce((partialSum, a) => partialSum + a, 0)) <= maxGifts)
