@@ -1,10 +1,9 @@
 function getOptimalPath(path) {
-    for (let i = path.length - 2; i >= 0; i--) {
-        for (let j = 0; j <= i; j++) {
-            path[i][j] += Math.min(path[i + 1][j], path[i + 1][j + 1]);
-        }
-    }
-    return path[0][0];
+    return path.reduceRight((previous, current) => {
+        return current.map((val, index) => {
+            return val + Math.min(previous[index], previous[index + 1])
+        })
+    })[0];
 }
 
 console.log(getOptimalPath([[0], [7, 4], [2, 4, 6]])); // 8
