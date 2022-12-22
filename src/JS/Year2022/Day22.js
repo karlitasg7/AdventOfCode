@@ -29,7 +29,7 @@ function checkStepNumbers(systemNames, stepNumbers) {
 
     return systemNames
         .every((systemName, index) => {
-            if (mapSystems[systemName] !== 'undefined' &&
+            if (mapSystems[systemName] &&
                 mapSystems[systemName] >= stepNumbers[index]) {
                 return false;
             }
