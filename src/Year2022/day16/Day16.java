@@ -36,6 +36,13 @@ public class Day16 {
 
             Valve currentValve = valveList.get(0);
 
+            for (Valve v : valveList) {
+                if (v.code.equals("AA")) {
+                    currentValve = v;
+                    break;
+                }
+            }
+
             boolean needOpen = false;
 
             if (currentValve.rate > 0) {
@@ -85,6 +92,16 @@ public class Day16 {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+    }
+
+    private static Integer getRateFromValve(List<Valve> valveList, String code) {
+        for (Valve v : valveList) {
+            if (v.code.equals(code)) {
+                return v.rate;
+            }
+        }
+
+        return 0;
     }
 
 }

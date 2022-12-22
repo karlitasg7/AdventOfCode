@@ -8,11 +8,9 @@ import java.util.regex.Pattern;
 
 public class Valve {
 
-    String  code;
-    Integer rate;
-
-    Boolean isOpen;
-
+    String       code;
+    Integer      rate;
+    Boolean      isOpen;
     List<String> items = new ArrayList<>();
 
     private static final Pattern regex = Pattern.compile(
