@@ -1,4 +1,4 @@
-function checkStepNumbers(systemNames, stepNumbers) {
+function checkStepNumbers1(systemNames, stepNumbers) {
 
     let mapSystems = {};
 
@@ -22,6 +22,22 @@ function checkStepNumbers(systemNames, stepNumbers) {
     }
 
     return true;
+}
+
+function checkStepNumbers(systemNames, stepNumbers) {
+    const mapSystems = {};
+
+    return systemNames
+        .every((systemName, index) => {
+            if (mapSystems[systemName] !== 'undefined' &&
+                mapSystems[systemName] >= stepNumbers[index]) {
+                return false;
+            }
+
+            mapSystems[systemName] = stepNumbers[index];
+            return true;
+
+        });
 }
 
 const systemNames = ["tree_1", "tree_2", "house", "tree_1", "tree_2", "house"]
