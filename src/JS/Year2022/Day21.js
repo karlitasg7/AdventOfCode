@@ -58,7 +58,6 @@ console.log(printTable([
 
  */
 
-
 console.log(printTable([
     {name: 'PlayStation 5', quantity: 9234782374892},
     {name: 'Book Learn Web Dev', quantity: 23531}

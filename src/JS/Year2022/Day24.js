@@ -37,4 +37,3 @@ console.log(
 
 // Se puede salir porque empezamos en [0, 4]
 // y hay un camino hasta la salida que es [4, 4]
-

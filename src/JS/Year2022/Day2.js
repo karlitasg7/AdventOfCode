@@ -4,7 +4,7 @@ function countHours(year, holidays) {
 
     holidays.map(element => {
         let date = `${year}/${element}`;
-        var dt = new Date(date);
+        const dt = new Date(date);
         if (dt.getDay() > 0 && dt.getDay() < 6) {
             totalHours += 2;
         }
