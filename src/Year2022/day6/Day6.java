@@ -1,57 +1,53 @@
 package Year2022.day6;
 
 import shared.Constant;
+import shared.InputData;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
-import java.util.Scanner;
+import java.util.List;
 
 public class Day6 {
 
-    //public static final int SIZE_OF_CHARS = 4;
-    public static final int SIZE_OF_CHARS = 14; // Part2
+    //    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day6\\sample.txt";
+    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day6\\input.txt";
 
     public static void main(String[] args) {
-        try {
-            File    inputFile = new File(Constant.BASE_PATH_2022 + "day6\\input.txt");
-            Scanner myReader  = new Scanner(inputFile);
+        calculate(4);
 
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                System.out.println(data);
+        System.out.println("********** Part 2 **********");
+        calculate(14);
+    }
 
-                if (data.isEmpty()) {
-                    continue;
-                }
+    private static void calculate(Integer sizeOfChars) {
+        List<String> input = InputData.get(FILE_NAME);
 
-                int charPosition = 0;
-                for (int i = 0; i < data.length() - (SIZE_OF_CHARS + 1); i++) {
+        for (String line : input) {
 
-                    String newText = data.substring(i, (i + SIZE_OF_CHARS));
+            if (line.isEmpty()) {
+                continue;
+            }
 
-                    HashMap<String, Integer> charsMap = new HashMap<>();
+            int charPosition = 0;
+            for (int i = 0; i < line.length() - (sizeOfChars + 1); i++) {
 
-                    for (String letter : newText.split("")) {
-                        if (charsMap.containsKey(letter)) {
-                            break;
-                        }
-                        charsMap.put(letter, 1);
-                    }
+                String newText = line.substring(i, (i + sizeOfChars));
 
-                    if (charsMap.size() == SIZE_OF_CHARS) {
-                        charPosition = i;
+                HashMap<String, Integer> charsMap = new HashMap<>();
+
+                for (String letter : newText.split("")) {
+                    if (charsMap.containsKey(letter)) {
                         break;
                     }
+                    charsMap.put(letter, 1);
                 }
 
-                System.out.println(charPosition + SIZE_OF_CHARS);
+                if (charsMap.size() == sizeOfChars) {
+                    charPosition = i;
+                    break;
+                }
             }
-            myReader.close();
 
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            System.out.println(charPosition + sizeOfChars);
         }
     }
 
