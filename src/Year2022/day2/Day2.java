@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Day2 {
 
-    //    public static final String FILE_NAME = Constant.BASE_PATH_2022 + "day2\\sample.txt";
+    //    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day2\\sample.txt";
     private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day2\\input.txt";
 
     private static final Map<String, Integer> mapScore       = new HashMap<>();

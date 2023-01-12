@@ -10,8 +10,8 @@ import java.util.Objects;
 
 public class Day3 {
 
-    //    public static final String FILE_NAME = Constant.BASE_PATH_2022 + "day3\\sample.txt";
-    public static final String FILE_NAME = Constant.BASE_PATH_2022 + "day3\\input.txt";
+    //    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day3\\sample.txt";
+    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day3\\input.txt";
 
     private static final String priorities = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWYXZ";
 
