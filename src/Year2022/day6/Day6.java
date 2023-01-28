@@ -8,8 +8,8 @@ import java.util.List;
 
 public class Day6 {
 
-    //    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day6\\sample.txt";
-    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day6\\input.txt";
+    //    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "Day6/sample.txt";
+    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "Day6/input.txt";
 
     public static void main(String[] args) {
         calculate(4);

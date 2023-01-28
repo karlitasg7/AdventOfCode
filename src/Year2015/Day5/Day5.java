@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 
 public class Day5 {
 
-    //    private static final String FILE_NAME = Constant.BASE_PATH_2015 + "day5\\sample.txt";
-    private static final String FILE_NAME = Constant.BASE_PATH_2015 + "day5\\input.txt";
+    //    private static final String FILE_NAME = Constant.BASE_PATH_2015 + "Day5/sample.txt";
+    private static final String FILE_NAME = Constant.BASE_PATH_2015 + "Day5/input.txt";
 
     private static final Predicate<String> containsAtLeastThreeVowels = (str) -> {
         Pattern containsAtLeastThreeVowelsPattern = Pattern.compile("[aeiou].*[aeiou].*[aeiou]");

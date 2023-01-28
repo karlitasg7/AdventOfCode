@@ -12,7 +12,7 @@ public class InputData {
         List<String> list = new ArrayList<>();
         try {
 
-            File file = new File(fileName);
+            File file = new File("" + fileName);
             try (Scanner input = new Scanner(file)) {
                 while (input.hasNextLine()) {
                     list.add(input.nextLine());

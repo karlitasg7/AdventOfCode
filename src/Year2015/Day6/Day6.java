@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 
 public class Day6 {
 
-    //    private static final String FILE_NAME = Constant.BASE_PATH_2015 + "day6\\sample.txt";
-    private static final String FILE_NAME = Constant.BASE_PATH_2015 + "day6\\input.txt";
+    //    private static final String FILE_NAME = Constant.BASE_PATH_2015 + "Day6/sample.txt";
+    private static final String FILE_NAME = Constant.BASE_PATH_2015 + "Day6/input.txt";
 
     private static final Pattern lightingInstructionPattern = Pattern.compile("(.+) (\\d+),(\\d+) through (\\d+),(\\d+)");
 

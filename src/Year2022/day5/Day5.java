@@ -9,8 +9,8 @@ import java.util.Stack;
 
 public class Day5 {
 
-    //    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day5\\sample.txt";
-    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day5\\input.txt";
+    //    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "Day5/sample.txt";
+    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "Day5/input.txt";
 
     private static final Stack<String> stack1Sample = new Stack<>();
     private static final Stack<String> stack2Sample = new Stack<>();

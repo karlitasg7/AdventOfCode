@@ -9,8 +9,8 @@ import java.util.List;
 
 public class Day1 {
 
-    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day1\\sample.txt";
-//    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "day1\\input.txt";
+    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "Day1/sample.txt";
+//    private static final String FILE_NAME = Constant.BASE_PATH_2022 + "Day1/input.txt";
 
     public static void main(String[] args) {
 
