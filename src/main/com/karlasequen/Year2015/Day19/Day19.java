@@ -4,9 +4,15 @@ import com.karlasequen.shared.Constant;
 import com.karlasequen.shared.InputData;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Day19 {
 
@@ -50,6 +56,52 @@ public class Day19 {
 
         System.out.println("(Part 1). " + setMolecules.size());
 
+        int count = part2(replacementsList, molecule);
+        System.out.println("(Part 2). " + count);
+
+    }
+
+    public static int part2(List<String> replacementsList, String baseInput) {
+        Map<String, String> invertedMap = invertMap(replacementsList);
+
+        String fullMolecule = baseInput;
+
+        Queue<String> queue = new LinkedList<>();
+        queue.add(fullMolecule);
+
+        List<Map.Entry<String, String>> entries = invertedMap.entrySet().stream().collect(Collectors.toList());
+
+        int count = 0;
+        while (!queue.isEmpty()) {
+            String molecule = queue.poll();
+
+            for (Map.Entry<String, String> entry : entries) {
+                if (!entry.getValue().equals("e") && molecule.contains(entry.getKey())) {
+                    queue.add(molecule.replaceFirst(entry.getKey(), entry.getValue()));
+                    count++;
+                    break;
+                }
+            }
+
+            if (queue.isEmpty() && molecule.length() > 3) {
+                queue.add(fullMolecule);
+                Collections.shuffle(entries);
+                count = 0;
+            }
+        }
+
+        return count + 1;
+    }
+
+    private static Map<String, String> invertMap(List<String> replacementsList) {
+        Map<String, String> invertedMap = new HashMap<>();
+
+        for (String replacement : replacementsList) {
+            String[] linePart = replacement.split(" => ");
+            invertedMap.put(linePart[1], linePart[0]);
+        }
+
+        return invertedMap;
     }
 
 }
