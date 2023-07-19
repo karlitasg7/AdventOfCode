@@ -33,6 +33,7 @@ public class Day4 {
         }
 
         System.out.println("Part 1. " + total);
+
     }
 
     private static void processLine(String line) {
@@ -43,6 +44,7 @@ public class Day4 {
             int number = Integer.parseInt(matcher.group(2));
             String checkSum = matcher.group(3);
 
+            String originText = text;
             text = text.replace("-", "");
 
             Map<Character, Integer> mapLettersCount = new HashMap<>();
@@ -71,7 +73,28 @@ public class Day4 {
                 total += number;
             }
 
+            String decryptedName = decryptRoomName(originText, number);
+
+            if (decryptedName.toLowerCase().contains("northpole object")) {
+                System.out.println("Part 2. " + number);
+            }
+
         }
+    }
+
+    public static String decryptRoomName(String encryptedRoomName, int sectorId) {
+        StringBuilder decryptedName = new StringBuilder();
+
+        for (char c : encryptedRoomName.toCharArray()) {
+            if (c == '-') {
+                decryptedName.append(' ');
+            } else {
+                char decryptedChar = (char) ('a' + (c - 'a' + sectorId) % 26);
+                decryptedName.append(decryptedChar);
+            }
+        }
+
+        return decryptedName.toString();
     }
 
 }
