@@ -2,8 +2,8 @@ package com.karlasequen.Year2016.Day4;
 
 import com.karlasequen.shared.Constant;
 import com.karlasequen.shared.InputData;
+import com.karlasequen.shared.UtilsMaps;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,11 +53,7 @@ public class Day4 {
                 mapLettersCount.put(c, mapLettersCount.getOrDefault(c, 0) + 1);
             }
 
-            List<Map.Entry<Character, Integer>> sortedEntries = new ArrayList<>(mapLettersCount.entrySet());
-            sortedEntries.sort((entry1, entry2) -> {
-                int compare = entry2.getValue().compareTo(entry1.getValue()); // sort by frequency
-                return compare != 0 ? compare : entry1.getKey().compareTo(entry2.getKey()); // sort alphabetical
-            });
+            List<Map.Entry<Character, Integer>> sortedEntries = UtilsMaps.sortByFrequency(mapLettersCount);
 
             int count = 0;
             StringBuilder first5Letters = new StringBuilder();
