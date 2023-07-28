@@ -30,4 +30,8 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <sourceDirectory>src/main</sourceDirectory>
+    </build>
+
 </project>
