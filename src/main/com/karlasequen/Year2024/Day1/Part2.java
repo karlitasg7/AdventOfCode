@@ -7,10 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Day1 {
+public class Part2 {
 
-    //    private static final String FILE_NAME = Constant.BASE_PATH_2024 + "Day1/sample.txt";
-    //    private static final String FILE_NAME = Constant.BASE_PATH_2024 + "Day1/sample2.txt";
+    //        private static final String FILE_NAME = Constant.BASE_PATH_2024 + "Day1/sample.txt";
     private static final String FILE_NAME = Constant.BASE_PATH_2024 + "Day1/input.txt";
 
     public static void main(String[] args) {
@@ -30,13 +29,11 @@ public class Day1 {
             }
         }
 
-        listRight.sort(Integer::compareTo);
-        listLeft.sort(Integer::compareTo);
-
         int totalSum = 0;
 
-        for (int i = 0; i < listLeft.size(); i++) {
-            totalSum += Math.abs(listLeft.get(i) - listRight.get(i));
+        for (Integer numberLeft : listLeft) {
+            long countOnRight = listRight.stream().filter(n -> Objects.equals(n, numberLeft)).count();
+            totalSum += numberLeft * (int) countOnRight;
         }
 
         System.out.println("total is " + totalSum);
