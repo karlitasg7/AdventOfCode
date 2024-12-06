@@ -43,24 +43,26 @@ public class Part1 {
             }
         }
 
-        List<String> correctLines = new ArrayList<>();
+        List<String> correctLines   = new ArrayList<>();
+        List<String> incorrectLines = new ArrayList<>();
 
         for (String line : listOfUpdates) {
             if (isLineValid(line)) {
                 correctLines.add(line);
+            } else {
+                incorrectLines.add(line);
             }
         }
 
-        int total = 0;
-        for (String line : correctLines) {
-            String[] parts = line.split(",");
+        System.out.println("Total = " + getTotal(correctLines));
 
-            int middlePosition = parts.length / 2;
-
-            total += Integer.parseInt(parts[middlePosition]);
+        // ***** part 2
+        List<String> fixedIncorrectLines = new ArrayList<>();
+        for (String line : incorrectLines) {
+            fixedIncorrectLines.add(getFixedLine(line));
         }
 
-        System.out.println("Total = " + total);
+        System.out.println("Total part 2 = " + getTotal(fixedIncorrectLines));
 
     }
 
@@ -79,6 +81,50 @@ public class Part1 {
         }
 
         return true;
+    }
+
+    private static int getTotal(List<String> lines) {
+        int total = 0;
+        for (String line : lines) {
+            String[] parts = line.split(",");
+
+            int middlePosition = parts.length / 2;
+
+            total += Integer.parseInt(parts[middlePosition]);
+        }
+
+        return total;
+    }
+
+    private static String getFixedLine(String line) {
+        String[] parts = line.split(",");
+
+        int position = parts.length - 1;
+        int number   = Integer.parseInt(parts[position]);
+
+        int positionToCheck = position - 1;
+
+        while (position > 0) {
+            int numberToCheck = Integer.parseInt(parts[positionToCheck]);
+
+            if (!mapRules.containsKey(number) || !mapRules.get(number).contains(numberToCheck)) {
+                parts[position]        = parts[positionToCheck];
+                parts[positionToCheck] = String.valueOf(number);
+
+                number          = Integer.parseInt(parts[position]);
+                positionToCheck = position - 1;
+            } else {
+                if (positionToCheck == 0) {
+                    position--;
+                    positionToCheck = position - 1;
+                    number          = Integer.parseInt(parts[position]);
+                } else {
+                    positionToCheck--;
+                }
+            }
+        }
+
+        return String.join(",", parts);
     }
 
 }
